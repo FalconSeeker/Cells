@@ -58,8 +58,16 @@ public class CellsAPI {
 	}
 
 	public void rentCell(Player p, Cell cell) {
-		if (cell.getOwner() != null) return;
-		
+		if (cell.getOwner() != null) {
+			p.sendMessage(ChatColor.RED + "A player already owns this cell!");
+			return;
+		}
+		if (!canRent(p)) {
+			p.sendMessage(ChatColor.RED + "You cannot rent more cells!");
+			return;
+		}
+		cell.setOwner(p.getUniqueId());
+		p.sendMessage(ChatColor.GREEN + "You have rented this cell!");
 	}
 
 	public void unRentCell(Player p, Cell cell) {

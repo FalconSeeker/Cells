@@ -23,7 +23,22 @@ public class Cell implements ICell {
 		this.setGroup(group);
 		this.setPrice(price);
 	}
-
+	public Cell(String id, String group, Location home, List<Location> locationSet, int price) {
+		this.setId(id);
+		this.setLocationSet(locationSet);
+		this.setOwner(null);
+		this.setHome(home);
+		this.setGroup(group);
+		this.setPrice(price);
+	}
+	public Cell(String id, String group, List<Location> locationSet, int price) {
+		this.setId(id);
+		this.setLocationSet(locationSet);
+		this.setOwner(null);
+		this.setHome(null);
+		this.setGroup(group);
+		this.setPrice(price);
+	}
 	@Override public List<Location> getLocationSet() {
 		return Collections.unmodifiableList(locationSet);
 	}

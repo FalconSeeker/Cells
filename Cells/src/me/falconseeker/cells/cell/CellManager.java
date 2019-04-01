@@ -6,11 +6,14 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 import me.falconseeker.cells.CellPlugin;
+import net.md_5.bungee.api.ChatColor;
 
 public class CellManager {
 
@@ -36,9 +39,21 @@ public class CellManager {
     }
 
     public void deserialise() {
+    	Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Loading Cells - ");
+
         if(!cellSet.isEmpty()) {
         
+        	
+        int totalProgress = cellSet.size();
+        int currentProgress = 0;
+        int cellNumber = 0;
+        
         for (Cell cell : cellSet) {
+        	Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "" + Math.round(currentProgress) + "%");
+
+        	cellNumber++;
+        	currentProgress = (cellNumber / totalProgress) * 100;
+        	
         	plugin.getConfig().set("cells." + cell.getId() + ".owner", cell.getOwner().toString());
         	plugin.getConfig().set("cells." + cell.getId() + ".home", cell.getHome());
 
@@ -52,6 +67,9 @@ public class CellManager {
 
     public List<Cell> getCells(Player owner) {
         return cellSet.stream().filter(cell -> cell.getOwner().equals(owner.getUniqueId())).collect(Collectors.toList());
+    }
+    public Cell getCell(Location location) {
+        return cellSet.stream().filter(cell -> cell.getLocationSet().contains(location)).findFirst().orElse(null);
     }
     public Cell getCell(String id) {
         return cellSet.stream().filter(cell -> cell.getOwner().equals(id)).findFirst().orElse(null);
