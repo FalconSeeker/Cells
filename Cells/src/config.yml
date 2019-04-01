@@ -1,0 +1,7 @@
+#Permission is cells.cellgroup.GROUP so for example, cells.cellgroup.A
+Groups:
+ - 'A'
+ - 'B'
+ - 'C'
+ - 'D'
+ - 'Donor' 
