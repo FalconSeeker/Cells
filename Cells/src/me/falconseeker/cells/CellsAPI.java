@@ -1,10 +1,10 @@
 package me.falconseeker.cells;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import me.falconseeker.cells.cell.Cell;
 import me.falconseeker.cells.cell.CellManager;
-import net.md_5.bungee.api.ChatColor;
 
 public class CellsAPI {
 
