@@ -16,28 +16,28 @@ public class Cell implements ICell {
 	private int price;
 	
 	public Cell(String id, String group, UUID owner, Location home, List<Location> locationSet, int price) {
-		this.setId(id);
-		this.setLocationSet(locationSet);
-		this.setOwner(owner);
-		this.setHome(home);
-		this.setGroup(group);
-		this.setPrice(price);
+		this.id = id;
+		this.locationSet = locationSet;
+		this.owner = owner;
+		this.home = home;
+		this.group = group;
+		this.price = price;
 	}
 	public Cell(String id, String group, Location home, List<Location> locationSet, int price) {
-		this.setId(id);
-		this.setLocationSet(locationSet);
-		this.setOwner(null);
-		this.setHome(home);
-		this.setGroup(group);
-		this.setPrice(price);
+		this.id = id;
+		this.locationSet = locationSet;
+		this.owner = null;
+		this.home = home;
+		this.group = group;
+		this.price = price;
 	}
 	public Cell(String id, String group, List<Location> locationSet, int price) {
-		this.setId(id);
-		this.setLocationSet(locationSet);
-		this.setOwner(null);
-		this.setHome(null);
-		this.setGroup(group);
-		this.setPrice(price);
+		this.id = id;
+		this.locationSet = locationSet;
+		this.owner = null;
+		this.home = null;
+		this.group = group;
+		this.price = price;
 	}
 	@Override public List<Location> getLocationSet() {
 		return Collections.unmodifiableList(locationSet);
