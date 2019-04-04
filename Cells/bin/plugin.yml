@@ -1,0 +1,5 @@
+name: Cells
+author: Falcon_Seeker
+version: 1.0
+main: me.falconseeker.cells.CellPlugin
+commands:

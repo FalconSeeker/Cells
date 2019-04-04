@@ -72,7 +72,7 @@ public class CellManager {
         return cellSet.stream().filter(cell -> cell.getLocationSet().contains(location)).findFirst().orElse(null);
     }
     public Cell getCell(String id) {
-        return cellSet.stream().filter(cell -> cell.getOwner().equals(id)).findFirst().orElse(null);
+        return cellSet.stream().filter(cell -> cell.getId().equals(id)).findFirst().orElse(null);
     }
     public Set<Cell> getCells() {
         return Collections.unmodifiableSet(cellSet);
